@@ -1,0 +1,1 @@
+# display the results of the quadratic equation using rich

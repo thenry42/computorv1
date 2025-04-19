@@ -1,0 +1,1 @@
+# calculate the discriminant (delta) of the quadratic equation

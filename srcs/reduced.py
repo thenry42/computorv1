@@ -1,0 +1,1 @@
+# get the reduced form of the quadratic equation
