@@ -12,8 +12,9 @@ def main():
         print("Usage: ./computor <equation>")
         return 1
 
-    test = "8 * X^0 - 6 * X^1 + 0 * X^2 = 3 * X^0"
-    terms = parse_input(test)
+    test1 = "5 * X^0 + 4 * X^1 = 4 * X^0"
+    test2 = "5 * X^0 + 4 * X^1 - 9.3 * X^2 = 1 * X^0"
+    terms = parse_input(test2)
 
     # 2. get reduced form (a * X^2 + b * X + c = 0)
 
@@ -29,6 +30,11 @@ def main():
 
     # 5. print the results
 
+    if isinstance(solutions, list):
+        formatted_solutions = [f"{sol:.6f}" for sol in solutions]
+        print(formatted_solutions)
+    else:
+        print(f"{solutions:.6f}")
 
     return 0
 
