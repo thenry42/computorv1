@@ -5,7 +5,7 @@ VENV = venv
 VENV_BIN = $(VENV)/bin
 PIP = $(VENV_BIN)/pip
 PYTHON_VENV = $(VENV_BIN)/python
-PROGRAM_NAME = computorv1
+PROGRAM_NAME = computor
 SRCS = srcs/
 
 all: exe
