@@ -1,3 +1,5 @@
+from Term import Term
+
 """
 Example 1:
 8 * X^0 - 6 * X^1 + 0 * X^2 = 3 * X^0
@@ -20,22 +22,11 @@ Term[3] = {1, 0, 1}
 
 """
 
-# The Every term in the equation will be in the following format:
-# a * X^p
-# where a is the coefficient & p is the power
-class Term:
-    def __init__(self, coefficient: float, power: int, sign: int):
-        self.coefficient = coefficient
-        self.power = power
-        self.sign = sign
-
 
 def parse_input(equation_str: str) -> list[Term]:
     """
     Parse the input of the user
     """
-
-    # 0. Divide expression with left and right sides
     sides = equation_str.split('=')
     if len(sides) != 2:
         raise ValueError("Invalid equation format")
@@ -43,19 +34,24 @@ def parse_input(equation_str: str) -> list[Term]:
     print("Left:", sides[0])
     print("Right:", sides[1])
 
+    # Check if the right side is already "0" (or "0.0", " 0 ", etc.)
+    right_side_stripped = sides[1].strip()
+    is_already_reduced = right_side_stripped == "0" or right_side_stripped == "0.0"
+    
     # 1. Parse each sides
     all_terms = []
     left_terms = parse_each_sides(sides[0], 1)
-    right_terms = parse_each_sides(sides[1], -1) 
     
-    # Add all terms from both sides to a single list
+    if not is_already_reduced:
+        right_terms = parse_each_sides(sides[1], -1)
+        all_terms.extend(right_terms)
+    
     all_terms.extend(left_terms)
-    all_terms.extend(right_terms)
 
     print("Expression terms:")
     for i, term in enumerate(all_terms):
         print(f"Term[{i}] = {{{term.coefficient}, {term.power}, {term.sign}}}")
-    
+        
     return all_terms
 
 

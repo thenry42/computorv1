@@ -1,5 +1,4 @@
-# get the reduced form of the quadratic equation
-from parser import Term
+from Term import Term
 
 def get_reduced(terms: list[Term]):
 

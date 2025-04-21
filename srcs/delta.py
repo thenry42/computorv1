@@ -1,4 +1,4 @@
-from parser import Term
+from Term import Term
 
 
 def get_letter(terms: list[Term], letter: str):

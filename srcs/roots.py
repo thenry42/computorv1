@@ -1,4 +1,4 @@
-from parser import Term
+from Term import Term
 from delta import get_letter
 from maths import my_sqrt
 from math import sqrt # REMOVE FOR PUSH
@@ -57,5 +57,11 @@ def get_complex_roots(terms: list[Term], delta: float):
     c = get_letter(terms, 'c')
 
     # get the real part and the imaginary part of the roots
+
+    real = -b / (2 * a)
+    imaginary = my_sqrt(-delta) / (2 * a)
+
+    x.append(complex(real, imaginary))
+    x.append(complex(real, -imaginary))
 
     return x
