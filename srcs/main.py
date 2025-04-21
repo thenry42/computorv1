@@ -20,7 +20,11 @@ def main():
 
     terms = get_reduced(terms)
 
-    # 3. calculate the discriminant (delta)
+    # 3.a. calculate Linear solution (if not quadratic)
+
+
+
+    # 3.b. calculate the discriminant (delta) if quadratic
 
     delta = get_delta(terms)
 
