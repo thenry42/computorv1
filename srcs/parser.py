@@ -31,9 +31,6 @@ def parse_input(equation_str: str) -> list[Term]:
     if len(sides) != 2:
         raise ValueError("Invalid equation format")
 
-    print("Left:", sides[0])
-    print("Right:", sides[1])
-
     # Check if the right side is already "0" (or "0.0", " 0 ", etc.)
     right_side_stripped = sides[1].strip()
     is_already_reduced = right_side_stripped == "0" or right_side_stripped == "0.0"
@@ -47,11 +44,6 @@ def parse_input(equation_str: str) -> list[Term]:
         all_terms.extend(right_terms)
     
     all_terms.extend(left_terms)
-
-    print("Expression terms:")
-    for i, term in enumerate(all_terms):
-        print(f"Term[{i}] = {{{term.coefficient}, {term.power}, {term.sign}}}")
-        
     return all_terms
 
 
@@ -65,7 +57,7 @@ def parse_each_sides(expression: str, side_multiplier: int):
     expression = expression.replace("-", " -")
     expression = expression.replace("*", " *")
     expression = expression.replace("X^", "X^ ")
-    print(expression)
+    #print(expression)
 
     tokens = expression.split()
 

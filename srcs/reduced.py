@@ -22,10 +22,6 @@ def get_reduced(terms: list[Term]):
             sign = -1
         reduced_terms.append(Term(abs(coef), power, sign))
 
-    print("Reduced terms:")
-    for i, term in enumerate(reduced_terms):
-        print(f"Term[{i}] = {{{term.coefficient}, {term.power}, {term.sign}}}")
-    
     return reduced_terms
 
 
@@ -35,5 +31,9 @@ def get_polynomial_degree(terms: list[Term]):
     for term in terms:
         if term.power >= degree:
             degree = term.power
-    print("Polynomial degree:", degree)
     return degree
+
+
+def get_reduced_str(terms: list[Term]):
+    reduced_str = ""
+    return reduced_str 
