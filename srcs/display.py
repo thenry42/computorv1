@@ -87,14 +87,21 @@ def format_solutions(solutions):
         text = Text("The solutions are:", style="yellow")
         for i, sol in enumerate(solutions):
             if isinstance(sol, complex):
-                real_part = sol.real
-                imag_part = abs(sol.imag)
+                real_part = round(sol.real, 6)
+                imag_part = round(abs(sol.imag), 6)
+                # Remove trailing zeros
+                real_str = f"{real_part:.6f}".rstrip('0').rstrip('.') if '.' in f"{real_part:.6f}" else f"{real_part:.6f}"
+                imag_str = f"{imag_part:.6f}".rstrip('0').rstrip('.') if '.' in f"{imag_part:.6f}" else f"{imag_part:.6f}"
+                
                 if sol.imag >= 0:
-                    text.append(f"\nx{i+1} = {real_part} + {imag_part}i", style="yellow")
+                    text.append(f"\nx{i+1} = {real_str} + {imag_str}i", style="yellow")
                 else:
-                    text.append(f"\nx{i+1} = {real_part} - {imag_part}i", style="yellow")
+                    text.append(f"\nx{i+1} = {real_str} - {imag_str}i", style="yellow")
             else:
-                text.append(f"\nx{i+1} = {sol}", style="yellow")
+                rounded_sol = round(sol, 6)
+                # Remove trailing zeros
+                sol_str = f"{rounded_sol:.6f}".rstrip('0').rstrip('.') if '.' in f"{rounded_sol:.6f}" else f"{rounded_sol:.6f}"
+                text.append(f"\nx{i+1} = {sol_str}", style="yellow")
         return text
     
     return Text(str(solutions), style="yellow")

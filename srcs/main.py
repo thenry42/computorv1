@@ -1,10 +1,8 @@
 import sys
+from utils import get_reduced, get_polynomial_degree, get_reduced_str, get_delta, get_letter, zero_degree, get_linear_solution
 from parser import parse_input
-from reduced import get_reduced, get_polynomial_degree, get_reduced_str
-from delta import get_delta, zero_degree
 from roots import get_roots
-from linear import get_linear_solution
-from Term import Term
+from term import Term
 from display import display_reduced_form, display_polynomial_degree, display_solution, display_str, display_discriminant
 
 
@@ -24,7 +22,7 @@ def main():
         # 2. Get reduced form of the equation (a * X^2 + b * X + c = 0)
         degree = get_polynomial_degree(terms)
         terms = get_reduced(terms)
-        reduced_str = get_reduced_str(terms)
+        reduced_str = get_reduced_str(terms, degree)
         
         # Display reduced form and degree
         display_reduced_form(reduced_str)
